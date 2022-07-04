@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div id="main" th:fragment="menu">
+    <div class="container">
+        <nav>
+            <div class="nav-xbootstrap">
+                <ul>
+                    <th:block th:if="${username == 'admin'}">
+                        <li><a href="/principal">Home</a></li>
+                        <li><a href="javascript:void(0)">Cadastrar<span
+                                class="glyphicon glyphicon-chevron-down iconsize"></span></a>
+                            <ul class="dropdown">
+                                <li><a href="/role">Perfil</a></li>
+                                <li><a href="/user">Usuários</a></li>
+                            </ul>
+                        </li>
+                    </th:block>
+                    <li><a href="/logout">Sair</a></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <button onclick="myFunction()" class="btn"><img th:src="@{/img/contrast.png}"/></button>
+                </ul>
+            </div>
+            <div class="nav-bg-xbootstrap">
+                <div class="navbar-xbootstrap"> <span></span> <span></span> <span></span> </div>
+                <a href="https://xbootstrap.com" class="title-mobile">CONTROLE DE AGENTES</a>
+            </div>
+        </nav>
+        <div class='content'>
+        </div>
+    </div>
+</div>
+</html>

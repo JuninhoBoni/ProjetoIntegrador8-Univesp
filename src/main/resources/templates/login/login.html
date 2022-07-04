@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+    <link th:href="@{/styles/menu.css}" rel="stylesheet" />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script th:src="@{/js/menu.js}"></script>
+</head>
+<body>
+<div class="container">
+    <div id="inverter-color" class="col-md-12 text-right">
+        <button onclick="myFunction()" class="btn"><img th:src="@{/img/contrast.png}"/></button>
+    </div>
+</div>
+<div id="login" style="padding-top:5%">
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+
+                <div th:if="${param.error}" class="alert alert-danger">
+                    Usuário ou Senha inválidos.
+                </div>
+                <div th:if="${param.logout}" class="alert alert-success">
+                    Você saiu do sistema!
+                </div>
+
+                <form th:action="@{/login}" method="post">
+                    <h3 class="text-center text-primary">Login</h3>
+                    <div class="form-group">
+                        <label for="username" class="text-primary">Usuário:</label>
+                        <input autofocus="autofocus" class="form-control" id="username" name="username" type="text"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="text-primary">Senha:</label>
+                        <input class="form-control" id="password" name="password" type="password"/>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                    </div>
+                    <div class="form-group center">
+                        <a class="btn btn-sm btn-default" th:href="@{/user/addNew}">Criar Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

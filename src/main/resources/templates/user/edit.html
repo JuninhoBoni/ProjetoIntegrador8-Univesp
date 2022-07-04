@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Usuários</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+    <link th:href="@{/styles/menu.css}" rel="stylesheet" />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script th:src="@{/js/menu.js}"></script>
+</head>
+<body>
+<div th:replace="page/menu :: menu"></div>
+<div class="container">
+    <div class="panel-heading">
+        <strong>Usuários</strong>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" enctype="multipart/form-data" method="POST" style="margin: 10px" th:action="@{/user/edit}"
+              th:object="${user}">
+            <div class="form-group">
+                <fieldset>
+                    <div class="form-group row">
+                        <div class="col-xs-1">
+                            <input class="form-control input-sm" id="id" readOnly="readonly" th:field="*{id}"
+                                   type="text"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-4" th:classappend="${#fields.hasErrors('username')}? 'has-error'">
+                            <label>Usuário</label>
+                            <input autofocus="autofocus" class="form-control input-sm" maxlength="50"
+                                   th:field="*{username}" type="text"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-4" th:classappend="${#fields.hasErrors('name')}? 'has-error'">
+                            <label>Nome</label>
+                            <input class="form-control input-sm" maxlength="50" th:field="*{name}" type="text"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-4" th:classappend="${#fields.hasErrors('password')}? 'has-error'">
+                            <label>Senha</label>
+                            <input class="form-control input-sm" maxlength="150" th:field="*{password}"
+                                   type="password"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-4" th:classappend="${#fields.hasErrors('email')}? 'has-error'">
+                            <label>E-mail</label>
+                            <input type="text" class="form-control input-sm" th:field="*{email}" autofocus="autofocus" maxlength="50" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-4" th:classappend="${#fields.hasErrors('endereco')}? 'has-error'">
+                            <label>Endereço</label>
+                            <input autofocus="autofocus" class="form-control input-sm" maxlength="50"
+                                   th:field="*{endereco}" type="text"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-4" th:classappend="${#fields.hasErrors('role')}? 'has-error'">
+                            <label>Acesso</label>
+                            <select class="form-control" id="dropDownList" th:field="*{role}">
+                                <option value="0">Selecione</option>
+                                <option th:each="role : ${profiles}" th:text="${role.profile}"
+                                        th:value="${role.id}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-4" th:classappend="${#fields.hasErrors('photo')}? 'has-error'">
+                            <label>Foto - APENAS FORMATO JPEG E JPG - PREFERENCIALMENTE 700x935</label>
+                            <input accept="image/jpg, image/jpeg" class="form-control input-sm" name="file"
+                                   type="file"/>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="form-group row">
+                <button type="submit" class="btn btn-sm btn-primary">Confirmar</button>
+                <a th:href="@{/user}" class="btn btn-sm btn-default">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

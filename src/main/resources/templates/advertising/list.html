@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <meta content="width=device-width" name="viewport"/>
+    <title>DADOS DO ATENDIMENTO</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" id="bootstrap-css" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/styles/menu.css}"/>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script th:src="@{/js/menu.js}"></script>
+</head>
+<body>
+<div th:replace="page/menu :: menu"></div>
+
+<th:block th:if="${#lists.isEmpty(advertisings)}">
+    <div class="container" th:if="${username != 'admin'}">
+        <div class="panel-heading">
+            <br></br>
+            <br></br>
+            <h2>AGENDAMENTO PENDENTE</h2>
+        </div>
+    </div>
+</th:block>
+
+<div class="container" th:if="${not #lists.isEmpty(advertisings)}">
+    <div class="panel-heading">
+        <h2>DADOS DO ATENDIMENTO</h2>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-sm">
+                <thead>
+                <tr>
+                    <th>Agente</th>
+                    <th>Descrição</th>
+                    <th>Endereço</th>
+                    <th>Foto</th>
+                    <th>Opções</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="advertising : ${advertisings}">
+                    <td th:text="${advertising.agentName.name}"></td>
+                    <td th:text="${advertising.descricao}"></td>
+                    <td th:text="${advertising.userEndereco.endereco}"></td>
+                    <td><img alt="" border="3" height="108" th:src="${advertising.agentName.photo}" width="81"></img>
+                    </td>
+                    <td>
+                        <div class="btn-group pull-right">
+                            <a class="btn btn-sm btn-primary" th:href="@{/advertising/edit/{id}(id=${advertising.id})}">Editar</a>
+                            <a class="delete btn btn-sm btn-danger"
+                               th:href="@{/advertising/delete/{id}(id=${advertising.id})}">Excluir</a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <th:block th:if="${username == 'admin'}">
+        <a class="btn btn-sm btn-primary" th:href="@{/advertising/add/}">Adicionar</a>
+    </th:block>
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Usuários</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+    <link th:href="@{/styles/menu.css}" rel="stylesheet" />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script th:src="@{/js/menu.js}"></script>
+</head>
+<body>
+<div th:replace="page/menu :: menu"></div>
+<div class="container">
+    <div class="panel-heading">
+        <h2>Cadastro de Usuários</h2>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-sm">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Usuário</th>
+                    <th>Nome</th>
+                    <th>Tipo</th>
+                    <th>E-mail</th>
+                    <th>Endereço</th>
+                    <th>Foto</th>
+                    <th>Opções</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.username}"></td>
+                    <td th:text="${user.name}"></td>
+                    <td th:text="${user.role}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td th:text="${user.endereco}"></td>
+                    <td><img alt="" border="3" height="108" th:src="${user.photo}" width="81"></img></td>
+                    <td>
+                        <div class="btn-group pull-right">
+                            <a class="btn btn-sm btn-primary" th:href="@{/user/edit/{id}(id=${user.id})}">Editar</a>
+                            <a class="delete btn btn-sm btn-danger" th:href="@{/user/delete/{id}(id=${user.id})}">Excluir</a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <a class="btn btn-sm btn-primary" th:href="@{/user/add/}" >Adicionar</a>
+    </div>
+</div>
+</body>
+</html>

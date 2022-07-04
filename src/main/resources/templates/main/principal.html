@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+<link th:href="@{/styles/menu.css}" rel="stylesheet" />
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script th:src="@{/js/menu.js}"></script>
+</head>
+<body>
+    <div th:replace="page/menu :: menu"></div>
+</body>
+<div id="login" style="padding-top:5%">
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div th:if="${success}" class="alert alert-success">
+                    Dados inseridos com sucesso! Clique no botão sair para retornar a tela de login.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>
