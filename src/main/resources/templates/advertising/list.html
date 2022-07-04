@@ -37,7 +37,7 @@
                     <th>Descrição</th>
                     <th>Endereço</th>
                     <th>Foto</th>
-                    <th>Opções</th>
+                    <th th:if="${username != 'admin'}">Opções</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -47,7 +47,7 @@
                     <td th:text="${advertising.userEndereco.endereco}"></td>
                     <td><img alt="" border="3" height="108" th:src="${advertising.agentName.photo}" width="81"></img>
                     </td>
-                    <td>
+                    <td th:if="${username != 'admin'}">
                         <div class="btn-group pull-right">
                             <a class="btn btn-sm btn-primary" th:href="@{/advertising/edit/{id}(id=${advertising.id})}">Editar</a>
                             <a class="delete btn btn-sm btn-danger"
