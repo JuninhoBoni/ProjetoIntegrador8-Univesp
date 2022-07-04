@@ -1,7 +1,7 @@
-package br.com.piii.controller;
+package br.com.p8.controller;
 
-import br.com.piii.service.AdvertisingService;
-import br.com.piii.service.UserService;
+import br.com.p8.service.AdvertisingService;
+import br.com.p8.service.UserService;
 import groovy.util.logging.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

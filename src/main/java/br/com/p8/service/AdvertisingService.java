@@ -1,7 +1,7 @@
-package br.com.piii.service;
+package br.com.p8.service;
 
-import br.com.piii.model.Advertising;
-import br.com.piii.repository.AdvertisingRepository;
+import br.com.p8.model.Advertising;
+import br.com.p8.repository.AdvertisingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

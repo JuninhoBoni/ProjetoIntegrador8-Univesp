@@ -1,7 +1,7 @@
-package br.com.piii.service;
+package br.com.p8.service;
 
-import br.com.piii.model.Role;
-import br.com.piii.repository.RoleRepository;
+import br.com.p8.model.Role;
+import br.com.p8.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

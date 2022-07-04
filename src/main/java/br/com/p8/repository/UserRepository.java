@@ -1,6 +1,6 @@
-package br.com.piii.repository;
+package br.com.p8.repository;
 
-import br.com.piii.model.User;
+import br.com.p8.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

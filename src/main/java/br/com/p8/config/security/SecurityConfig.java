@@ -1,4 +1,4 @@
-package br.com.piii.config.security;
+package br.com.p8.config.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

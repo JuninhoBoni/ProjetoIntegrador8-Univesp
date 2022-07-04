@@ -1,4 +1,4 @@
-package br.com.piii.config.data;
+package br.com.p8.config.data;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

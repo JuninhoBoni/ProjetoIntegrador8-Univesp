@@ -1,6 +1,6 @@
-package br.com.piii.controller;
+package br.com.p8.controller;
 
-import br.com.piii.service.AdvertisingService;
+import br.com.p8.service.AdvertisingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;

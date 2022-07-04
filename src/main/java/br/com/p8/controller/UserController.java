@@ -1,9 +1,9 @@
-package br.com.piii.controller;
+package br.com.p8.controller;
 
-import br.com.piii.model.Role;
-import br.com.piii.model.User;
-import br.com.piii.service.RoleService;
-import br.com.piii.service.UserService;
+import br.com.p8.model.Role;
+import br.com.p8.model.User;
+import br.com.p8.service.RoleService;
+import br.com.p8.service.UserService;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;

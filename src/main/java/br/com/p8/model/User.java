@@ -1,4 +1,4 @@
-package br.com.piii.model;
+package br.com.p8.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
